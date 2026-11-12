@@ -136,6 +136,20 @@ h2.t em{font-weight:500}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .tags span{font-size:12px;font-weight:700;border:1.5px solid var(--ink);padding:2px 10px;border-radius:999px;background:var(--paper)}
 
+/* ---------- client logos ---------- */
+.clients{overflow:hidden;padding:6px 0 26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.clients-track{display:flex;width:max-content;animation:clients-slide 45s linear infinite}
+.clients:hover .clients-track{animation-play-state:paused}
+.clients-set{display:flex;gap:28px;padding-right:28px;list-style:none}
+.client{flex:none;height:132px;min-width:150px;display:flex;align-items:center;justify-content:center;padding:14px 26px;background:#fff;border:2px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);transition:transform .2s}
+.client:nth-child(odd){transform:rotate(-1.2deg)}
+.client:nth-child(even){transform:rotate(1.2deg)}
+.client:hover{transform:rotate(0) translateY(-4px)}
+.client img{height:96px;width:auto;max-width:200px;object-fit:contain}
+.client img.sm{height:48px}
+@keyframes clients-slide{to{transform:translateX(-50%)}}
+.clients-note{margin-top:6px;font-family:var(--hand);font-size:24px;color:var(--ink-soft)}
+
 /* ---------- gallery ---------- */
 .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px}
 .pol{background:#fff;padding:12px 12px 14px;border:2px solid var(--ink);box-shadow:5px 6px 0 rgba(27,23,19,.9);transition:transform .2s}
@@ -251,6 +265,10 @@ footer{border-top:2px solid var(--ink);padding:50px 0 36px;margin-top:40px}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
+  .clients{-webkit-mask-image:none;mask-image:none}
+  .clients-track{width:auto;flex-wrap:wrap;justify-content:center}
+  .clients-set{flex-wrap:wrap;justify-content:center;padding:0 24px 28px}
+  .clients-set[aria-hidden="true"]{display:none}
 }
 </style>
 </head>
@@ -329,14 +347,15 @@ footer{border-top:2px solid var(--ink);padding:50px 0 36px;margin-top:40px}
     <span class="eyebrow">real projects, live links</span>
     <h2 class="t">Websites I've <em>built</em></h2>
     <div class="work-grid">
-      <a class="work rv" href="https://gfxbyusmania.netlify.app/" target="_blank" rel="noopener">
+      <!-- TODO: change the title, description and tags of this card to match keusmania.vercel.app -->
+      <a class="work rv" href="https://keusmania.vercel.app/" target="_blank" rel="noopener">
         <div class="browser">
-          <div class="bar"><i></i><i></i><i></i><small>gfxbyusmania.netlify.app</small></div>
-          <div class="shot"><img src="images/gfx-by-usmania.png" alt="GFX BY USMANIA website preview" loading="lazy" onerror="this.remove()"><iframe class="live" data-src="https://gfxbyusmania.netlify.app/" title="Live preview of https://gfxbyusmania.netlify.app/" loading="lazy" tabindex="-1" aria-hidden="true" referrerpolicy="no-referrer"></iframe><span class="badge">LIVE PREVIEW</span><span class="hint">Click to open website ↗</span></div>
+          <div class="bar"><i></i><i></i><i></i><small>keusmania.vercel.app</small></div>
+          <div class="shot"><img src="images/keusmania.png" alt="KE Usmania website preview" loading="lazy" onerror="this.remove()"><iframe class="live" data-src="https://keusmania.vercel.app/" title="Live preview of https://keusmania.vercel.app/" loading="lazy" tabindex="-1" aria-hidden="true" referrerpolicy="no-referrer"></iframe><span class="badge">LIVE PREVIEW</span><span class="hint">Click to open website ↗</span></div>
         </div>
-        <h3>GFX BY USMANIA</h3>
-        <p>My own design studio site: services, samples and an easy way to order graphics.</p>
-        <div class="tags"><span>Graphic design</span><span>HTML / CSS</span><span>Netlify</span></div>
+        <h3>KE Usmania</h3>
+        <p>A live website I designed and built from scratch. Open it to see the full experience.</p>
+        <div class="tags"><span>Web design</span><span>Responsive</span><span>Vercel</span></div>
         <span class="go">Visit website →</span>
       </a>
       <a class="work rv" href="https://usmania.vercel.app/" target="_blank" rel="noopener">
@@ -349,6 +368,42 @@ footer{border-top:2px solid var(--ink);padding:50px 0 36px;margin-top:40px}
         <div class="tags"><span>Travel &amp; tourism</span><span>Web design</span><span>Vercel</span></div>
         <span class="go">Visit website →</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section class="s" id="clients" style="padding-bottom:30px">
+  <div class="wrap">
+    <span class="eyebrow">trusted by</span>
+    <h2 class="t">Brands I've <em>worked with</em></h2>
+  </div>
+  <div class="clients" aria-label="Logos of brands and organisations I have worked with">
+    <div class="clients-track">
+      <ul class="clients-set">
+        <li class="client"><img src="images/logos/karwan-e-usmania.png" alt="Karwan-e-Usmania Travel &amp; Tours logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/al-huda-group.png" alt="Al-Huda Group of Companies logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/jamaat-e-islami.png" alt="Jamaat-e-Islami logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/qafila-e-shauq.png" alt="Qafila-e-Shauq logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/uies.png" alt="Unique International Educational Services (UIES) logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/bazm-e-payam.png" alt="Bazm-e-Payam logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/krj.png" alt="KU travel logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/usmani-foundation.png" alt="Usmani Foundation logo" loading="lazy"></li>
+        <li class="client"><img src="images/logos/shield-allahu-akbar.png" alt="Client logo, blue shield with crescent" loading="lazy"></li>
+        <li class="client"><img class="sm" src="images/logos/usmania-vision-co.png" alt="Usmania Vision Co. logo" loading="lazy"></li>
+      </ul>
+      <ul class="clients-set" aria-hidden="true">
+        <li class="client"><img src="images/logos/karwan-e-usmania.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/al-huda-group.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/jamaat-e-islami.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/qafila-e-shauq.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/uies.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/bazm-e-payam.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/krj.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/usmani-foundation.png" alt="" loading="lazy"></li>
+        <li class="client"><img src="images/logos/shield-allahu-akbar.png" alt="" loading="lazy"></li>
+        <li class="client"><img class="sm" src="images/logos/usmania-vision-co.png" alt="" loading="lazy"></li>
+      </ul>
     </div>
   </div>
 </section>
